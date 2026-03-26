@@ -271,6 +271,13 @@ label-external-drives:
 
     echo -e '\nDone.'
 
+# Layers a comprehensive set of packages for libvirt/qemu/virt-manager
+install-libvirt-packages:
+    #!/usr/bin/bash
+    set -euo pipefail
+    rpm-ostree install -y libvirt libvirt-nss qemu-device-display-virtio-gpu qemu-device-display-virtio-vga qemu-device-usb-redirect qemu-img qemu-user-binfmt virt-install
+    echo "Use the set-libvirt-daemons ujust to enable libvirt daemons"
+
 # Convenience utility for layering VPN provider packages
 install-vpn:
     #!/usr/bin/bash
